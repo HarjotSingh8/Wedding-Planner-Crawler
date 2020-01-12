@@ -6,7 +6,7 @@ os.system('scrapy crawl cityscraper -o cities.json')    #this will crawl for new
 os.system('cp cities.json tutorial/spiders/cities.json')
 os.system('touch master.json')
 master= open("master.json","w+")
-master.write('{\r\n')
+master.write('{"banquets":{\r\n')
 master.close()
 #os.system('cat chandigarh.json >> master.json')
 cities=[]
@@ -30,6 +30,7 @@ with open('cities.json') as json_file:
         list = os.listdir("cities")
         if len(list)==len(data[0]['city'])-1:
             for c in data[0]['city'][:-1]:
+                os.system('rm '+c+'.sh')
                 master=open("master.json","a+")
                 master.write('"'+c+'":')
                 master.close()
@@ -61,7 +62,7 @@ with open('cities.json', 'w') as outfile:
     json.dump(cities, outfile)
 os.system("sed -i '' -e '$ d' master.json")
 master=open("master.json","a+")
-master.write('}')
+master.write('}}')
 master.close()
 #master.close()
 #os.system('scrapy crawl banquetscraper -o wed.json')
