@@ -3,7 +3,7 @@ import json
 
 os.system('rm cities.json')
 os.system('scrapy crawl cityscraper -o cities.json')    #this will crawl for new celebrities
-os.system('cp cities.json tutorial/spiders/cities.json')
+#os.system('cp cities.json tutorial/spiders/cities.json')
 os.system('touch master.json')
 master= open("master.json","w+")
 master.write('{"banquets":{\r\n')
@@ -45,19 +45,6 @@ with open('cities.json') as json_file:
                     cities.append(c)
 
             break
-        '''master=open("master.json","a+")
-        master.write('"'+c+'":')
-        master.close()
-        os.system('cat '+c+'.json >> master.json')
-        master=open("master.json","a+")
-        master.write('\r\n,\r\n')
-        master.close()
-        if os.stat(c+'.json').st_size == 0:
-            os.system('sed -i "$ d" master.json')
-            os.system('sed -i "$ d" master.json')
-        else:
-            cities.append(c)'''
-#print(cities)
 with open('cities.json', 'w') as outfile:
     json.dump(cities, outfile)
 os.system("sed -i '' -e '$ d' master.json")
