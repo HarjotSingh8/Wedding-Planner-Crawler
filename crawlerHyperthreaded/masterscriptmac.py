@@ -2,6 +2,7 @@ import os
 import json
 import time
 import hashlib
+os.system('mkdir banquets')
 os.system('rm cities.json') #remove cities.json file (this step might be unnecessary but haven't checked yet)
 os.system('scrapy crawl cityscraper -o cities.json')    #this will crawl for new cities
 os.system('touch master.json')  #create master.json file to hold all data
