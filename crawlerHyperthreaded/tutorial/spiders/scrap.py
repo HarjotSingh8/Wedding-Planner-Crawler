@@ -2,7 +2,7 @@ import scrapy
 import json
 
 class BrickSetSpider(scrapy.Spider):
-	name="banquetscraper"
+	name="banquetscraperold"
 	start_urls=[]
 	def __init__(self, start_url):
 		self.start_urls.append(start_url);
